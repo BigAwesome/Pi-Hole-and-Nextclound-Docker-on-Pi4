@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+
+  # More info at https://github.com/nextcloud/docker
+  db:
+    container_name: nextcloud_db
+    image: postgres:alpine
+    restart: always
+    volumes:
+      - /srv/nextcloud/db:/var/lib/postgresql/data
+    env_file:
+      - db.env
+
+  frontend:
+    container_name: nextcloud_frontend
+    image: nextcloud:apache
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - /srv/nextcloud/frontend:/var/www/html
+    environment:
+      - POSTGRES_HOST=db
+    env_file:
+      - db.env
+    depends_on:
+      - db
+
+  # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "80:80/tcp"
+      - "443:443/tcp"
+    environment:
+      TZ: "Europe/Berlin"
+    volumes:
+      - "/srv/pihole/etc-pihole/:/etc/pihole/"
+      - "/srv/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/"
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    cap_add:
+      - NET_ADMIN
