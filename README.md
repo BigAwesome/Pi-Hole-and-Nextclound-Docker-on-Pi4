@@ -1,6 +1,6 @@
 # PiHole and Nextclound on Pi4 using Docker
 
-WRNING! This project does NOT USE HTTPS! ONLY INTENDED FOR USSAGE IN CLOSED NETWORKS OR TESTING.
+WRNING! This project does NOT USE HTTPS! ONLY INTENDED FOR TESTING OR USSAGE IN CLOSED NETWORKS.
 
 If you need to install docker: https://dev.to/rohansawant/installing-docker-and-docker-compose-on-the-raspberry-pi-in-5-simple-steps-3mgl
 
@@ -10,4 +10,4 @@ If you need to install docker: https://dev.to/rohansawant/installing-docker-and-
 4. sudo docker-compose up -d
 Done!
 
-WRNING! This project does NOT USE HTTPS! ONLY INTENDED FOR USSAGE IN CLOSED NETWORKS OR TESTING.
+WRNING! This project does NOT USE HTTPS! ONLY INTENDED FOR TESTING OR USSAGE IN CLOSED NETWORKS.
