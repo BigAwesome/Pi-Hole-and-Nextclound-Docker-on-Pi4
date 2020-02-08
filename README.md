@@ -1,4 +1,4 @@
-# PiHole and Nextclound on Pi4 using Docker
+# Pi Hole and Nextclound on Pi4 using Docker
 
 WRNING! This project does NOT USE HTTPS! ONLY INTENDED FOR TESTING OR USSAGE IN CLOSED NETWORKS.
 
